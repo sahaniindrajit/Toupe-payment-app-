@@ -7,6 +7,7 @@ import signinBody from '../zod/signinBody.js'
 import signupBody from '../zod/signupBody.js'
 import updateBody from '../zod/updateBody.js'
 import auth from './auth.js';
+import Account from '../db/account.js';
 
 const router = Router()
 
@@ -45,6 +46,13 @@ router.post('/signup', async (req, res) => {
             userID: user._id
 
         }
+
+        const userID = user._id;
+        await Account.create({
+            user: userID,
+            balance: 1 + Math.random() * 10000
+        })
+
         const token = jwt.sign(payLoad, process.env.JWT_PASSWORD);
 
         return res.status(200).json({
@@ -118,7 +126,7 @@ router.put('/', auth, async (req, res) => {
     if (data.password) {
         const hash = await bycrpt.hash(req.body.password, 10);
         req.body.password = hash;
-        console.log(req.body)
+
     }
 
 
