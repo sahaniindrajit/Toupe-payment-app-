@@ -140,6 +140,43 @@ router.put('/', auth, async (req, res) => {
     }
 })
 
+router.get('/bulk', auth, async (req, res) => {
+    const filter = req.query.filter || ""
+    try {
+        const users = await User.find({
+            $or: [{
+                firstName: {
+                    "$regex": filter
+                }
+            }, {
+                lastName: {
+                    "$regex": filter
+                }
+            }]
+        })
 
+        if (users.length == 0) {
+            return res.status(200).json({
+                msg: "No user found"
+            })
+        }
+
+        res.status(200).json({
+            msg: "user found",
+            user: users.map((user) => ({
+                username: user.username,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                _id: user._id
+            }))
+        })
+    }
+    catch (err) {
+        console.log(err)
+        res.status(403).json({
+            msg: "server error"
+        })
+    }
+})
 
 export default router
