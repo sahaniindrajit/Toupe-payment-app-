@@ -6,7 +6,7 @@ import 'dotenv/config';
 import signinBody from '../zod/signinBody.js'
 import signupBody from '../zod/signupBody.js'
 import updateBody from '../zod/updateBody.js'
-import auth from './auth.js';
+import auth from '../middleware/auth.js';
 import Account from '../db/account.js';
 
 const router = Router()
