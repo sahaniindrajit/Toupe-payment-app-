@@ -1,6 +1,6 @@
 export default function Appbar() {
     return (
-        <div className="flex justify-between h-15 shadow-md mb-4">
+        <div className="fixed top-0 left-0 right-0 flex justify-between h-15 bg-slate-50 shadow-md ">
             <div className="flex flex-col justify-center h-full font-semibold text-xl mt-1.5 ml-4">
                 TOUPE
             </div>

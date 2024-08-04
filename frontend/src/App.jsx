@@ -3,11 +3,13 @@ import SigninBody from './pages/signin.jsx'
 import SignupBody from './pages/signup.jsx'
 import DashboardBody from './pages/dashboard.jsx'
 import SendBody from './pages/sendMoney.jsx'
+import Home from './pages/home.jsx'
 function App() {
 
   return (
     <BrowserRouter>
       <Routes>
+        <Route path='/' element={<Home />} />
         <Route path='/signup' element={<SignupBody />} />
         <Route path='/signin' element={<SigninBody />} />
         <Route path='/dashboard' element={<DashboardBody />} />
