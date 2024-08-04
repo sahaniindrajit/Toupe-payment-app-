@@ -5,15 +5,15 @@ function auth(req, res, next) {
 
     const authHeader = req.cookies.access_token
 
-    if (!authHeader || !authHeader.startsWith('Bearer')) {
+    if (!authHeader) {
         return res.status(403).json({
             msg: "Not valid form of token"
         });
     }
-    const token = authHeader.split(' ')[1];
+
 
     try {
-        const decoded = jwt.verify(token, process.env.JWT_PASSWORD);
+        const decoded = jwt.verify(authHeader, process.env.JWT_PASSWORD);
 
         if (!decoded) {
             return res.status(403).json({

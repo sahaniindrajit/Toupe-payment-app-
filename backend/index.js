@@ -10,7 +10,10 @@ const port = process.env.PORT || 3500;
 const app = express()
 
 
-app.use(cors())
+app.use(cors({
+    credentials: true,
+    origin: "http://localhost:5173"
+}));
 app.use(express.json())
 app.use(morgan('tiny'))
 app.use(cookieParser())

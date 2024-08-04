@@ -9,6 +9,7 @@ import updateBody from '../zod/updateBody.js'
 import auth from '../middleware/auth.js';
 import Account from '../db/account.js';
 
+
 const router = Router()
 
 router.post('/signup', async (req, res) => {
@@ -53,10 +54,12 @@ router.post('/signup', async (req, res) => {
             balance: 1 + Math.random() * 10000
         })
 
-        const token = Bearer + jwt.sign(payLoad, process.env.JWT_PASSWORD);
+        const token = jwt.sign(payLoad, process.env.JWT_PASSWORD);
 
-        return res.cookie('access_token', token, {
-            httpOnly: true
+        res.cookie("access_token", token, {
+            expires: new Date(Date.now() + 250000000),
+            httpOnly: true,
+            secure: true
         }).status(200).json({
             msg: "Signup success"
         })
@@ -102,9 +105,10 @@ router.get('/signin', async (req, res) => {
             userID: user._id
 
         }
-        const token = "Bearer " + jwt.sign(payLoad, process.env.JWT_PASSWORD);
+        const token = jwt.sign(payLoad, process.env.JWT_PASSWORD);
 
-        return res.cookie('access_token', token, {
+        return res.cookie("access_token", token, {
+
             httpOnly: true
         }).status(200).json({
             msg: "Signin success"
@@ -118,7 +122,7 @@ router.get('/signin', async (req, res) => {
     }
 })
 
-router.put('/', auth, async (req, res) => {
+router.put('/update', auth, async (req, res) => {
     const { data } = updateBody.safeParse(req.body);
     if (!data) {
         return res.status(411).json({
