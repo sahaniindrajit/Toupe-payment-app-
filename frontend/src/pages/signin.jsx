@@ -18,7 +18,7 @@ function Signin() {
                         <SubHeading label={"Enter your credentials to access an account"} />
                         <InputBox placeholder="johndoe@gmail.com" label={"Email"} />
                         <InputBox placeholder="qwerty123" label={"Password"} />
-                        <Button label={"Signup"} />
+                        <Button label={"Signin"} />
                         <BottomWarning label={"Don't have an account?"} buttonText={"Signup"} to={'/signup'} />
 
                     </div>
