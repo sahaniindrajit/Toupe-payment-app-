@@ -53,11 +53,12 @@ router.post('/signup', async (req, res) => {
             balance: 1 + Math.random() * 10000
         })
 
-        const token = jwt.sign(payLoad, process.env.JWT_PASSWORD);
+        const token = Bearer + jwt.sign(payLoad, process.env.JWT_PASSWORD);
 
-        return res.status(200).json({
-            msg: "signup sucessfull",
-            token: token
+        return res.cookie('access_token', token, {
+            httpOnly: true
+        }).status(200).json({
+            msg: "Signup success"
         })
 
     }
@@ -101,11 +102,12 @@ router.get('/signin', async (req, res) => {
             userID: user._id
 
         }
-        const token = jwt.sign(payLoad, process.env.JWT_PASSWORD);
+        const token = "Bearer " + jwt.sign(payLoad, process.env.JWT_PASSWORD);
 
-        return res.status(200).json({
-            msg: "signin sucessfull",
-            token: token
+        return res.cookie('access_token', token, {
+            httpOnly: true
+        }).status(200).json({
+            msg: "Signin success"
         })
     }
     catch (err) {

@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken'
 
 function auth(req, res, next) {
 
-    const authHeader = req.headers.authorization;
+    const authHeader = req.cookies.access_token
 
     if (!authHeader || !authHeader.startsWith('Bearer')) {
         return res.status(403).json({
