@@ -3,9 +3,16 @@ import InputBox from '../components/inputBox.jsx'
 import SubHeading from '../components/subHeading.jsx'
 import Button from '../components/button.jsx'
 import BottomWarning from '../components/bottomWarning.jsx'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+
 
 
 function Signin() {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const navigate = useNavigate();
     return (
         <>
             <div className='bg-slate-300 w-full h-screen flex justify-center'>
@@ -16,9 +23,17 @@ function Signin() {
 
                         <Heading label={"Signin"} />
                         <SubHeading label={"Enter your credentials to access an account"} />
-                        <InputBox placeholder="johndoe@gmail.com" label={"Email"} />
-                        <InputBox placeholder="qwerty123" label={"Password"} />
-                        <Button label={"Signin"} />
+                        <InputBox placeholder="johndoe@gmail.com" label={"Email"} onChange={(e) => setUsername(e.target.value)} />
+                        <InputBox placeholder="qwerty123" label={"Password"} onChange={(e) => setPassword(e.target.value)} />
+                        <Button label={"Signin"} onClick={async () => {
+                            await axios.post("http://localhost:3500/api/v1/user/signin", {
+                                username,
+                                password
+                            }, {
+                                withCredentials: true
+                            })
+                            navigate('/dashboard')
+                        }} />
                         <BottomWarning label={"Don't have an account?"} buttonText={"Signup"} to={'/signup'} />
 
                     </div>

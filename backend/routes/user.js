@@ -73,7 +73,7 @@ router.post('/signup', async (req, res) => {
     }
 })
 
-router.get('/signin', async (req, res) => {
+router.post('/signin', async (req, res) => {
     const { data } = signinBody.safeParse(req.body);
 
     if (!data) {

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-    body {
+    .stylepage {
       @apply mt-16;
     }
 }

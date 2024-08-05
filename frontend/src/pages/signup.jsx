@@ -45,7 +45,7 @@ function Signup() {
                             }, {
                                 withCredentials: true,
                             });
-                            navigate('/dashboard')
+                            navigate('/dashboard/?fName=' + firstName)
                         }} />
 
                         <BottomWarning label={"Already have an account?"} buttonText={"Signin"} to={'/signin'} />

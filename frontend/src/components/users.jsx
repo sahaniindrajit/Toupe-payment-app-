@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from 'axios'
 import Button from "./button";
+import { useNavigate } from "react-router-dom";
 
 export default function Users() {
     const [users, setUsers] = useState([]);
@@ -29,9 +30,9 @@ export default function Users() {
             </div>
 
             <div>
-                {users.map(user =>
+                {users ? users.map(user =>
                     <User user={user} />
-                )}
+                ) : <div className="font-semibold text-center text-xl mx-4">No user Found</div>}
             </div>
 
         </>
@@ -39,6 +40,7 @@ export default function Users() {
 }
 
 function User({ user }) {
+    const navigate = useNavigate();
 
     return (
         <div className="flex justify-between mx-4">
@@ -57,7 +59,10 @@ function User({ user }) {
             </div>
 
             <div>
-                <Button label={"Send Money"} />
+                <Button label={"Send Money"} onClick={(e) => {
+                    navigate("/send?id=" + user._id + "&fName=" + user.firstName + "&lName=" + user.lastName);
+
+                }} />
             </div>
 
         </div>

@@ -5,11 +5,11 @@ import Users from '../components/users'
 
 function Dashboard() {
     return (
-        <>
+        <div className='stylepage'>
             <Appbar />
             <Balance></Balance>
             <Users></Users>
-        </>
+        </div>
     )
 }
 
