@@ -1,4 +1,5 @@
 export default function Balance({ balance }) {
+
     return (
         <div className="flex justify-between">
             <div className="text-md font-semibold ml-4">

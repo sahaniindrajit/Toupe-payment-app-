@@ -26,13 +26,27 @@ function Signin() {
                         <InputBox placeholder="johndoe@gmail.com" label={"Email"} onChange={(e) => setUsername(e.target.value)} />
                         <InputBox placeholder="qwerty123" label={"Password"} onChange={(e) => setPassword(e.target.value)} />
                         <Button label={"Signin"} onClick={async () => {
-                            await axios.post("http://localhost:3500/api/v1/user/signin", {
-                                username,
-                                password
-                            }, {
-                                withCredentials: true
-                            })
-                            navigate('/dashboard')
+                            try {
+                                await axios.post("http://localhost:3500/api/v1/user/signin", {
+                                    username,
+                                    password
+                                }, {
+                                    withCredentials: true
+                                })
+
+
+                                if (status >= 400) {
+                                    navigate('/failed')
+                                }
+                                else {
+                                    navigate('/dashboard')
+                                }
+                            }
+                            catch (e) {
+                                alert(e);
+                                navigate('/failed')
+
+                            }
                         }} />
                         <BottomWarning label={"Don't have an account?"} buttonText={"Signup"} to={'/signup'} />
 

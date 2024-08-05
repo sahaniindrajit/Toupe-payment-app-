@@ -37,15 +37,28 @@ function Signup() {
                             setPassword(e.target.value)
                         }} />
                         <Button label={"Signup"} onClick={async () => {
-                            await axios.post("http://localhost:3500/api/v1/user/signup", {
-                                username,
-                                firstName,
-                                lastName,
-                                password
-                            }, {
-                                withCredentials: true,
-                            });
-                            navigate('/dashboard/?fName=' + firstName)
+                            try {
+                                await axios.post("http://localhost:3500/api/v1/user/signup", {
+                                    username,
+                                    firstName,
+                                    lastName,
+                                    password
+                                }, {
+                                    withCredentials: true,
+                                });
+
+                                if (status >= 400) {
+                                    navigate('/failed')
+                                }
+                                else {
+                                    navigate('/dashboard/?fName=' + firstName)
+                                }
+                            }
+                            catch (e) {
+                                alert(e);
+                                navigate('/failed')
+
+                            }
                         }} />
 
                         <BottomWarning label={"Already have an account?"} buttonText={"Signin"} to={'/signin'} />

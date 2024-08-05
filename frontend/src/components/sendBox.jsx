@@ -2,7 +2,7 @@ import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
 import Heading from "./heading";
 import InputBox from "./inputBox";
 import { useState } from "react";
-import axios from "axios";
+import axios, { HttpStatusCode } from "axios";
 
 export default function SendBox() {
     const [SearchParams] = useSearchParams()
@@ -33,24 +33,28 @@ export default function SendBox() {
             }} />
 
             <button type="button" onClick={async () => {
-                await axios.post("http://localhost:3500/api/v1/account/transfer", {
-                    to: id,
-                    amount
+                try {
 
-                }, {
-                    withCredentials: true
-                })
-                    .catch((error) => {
-                        if (error.response) {
-                            console.log(error.response);
-                            console.log("server responded");
-                            navigate('/failed')
-                        } else if (error.request) {
-                            console.log("network error");
-                        } else {
-                            navigate('/success')
-                        }
-                    });
+                    const response = await axios.post("http://localhost:3500/api/v1/account/transfer", {
+                        to: id,
+                        amount
+
+                    }, {
+                        withCredentials: true
+                    })
+                    if (response.status >= 400) {
+                        navigate('/failed')
+                    }
+                    else {
+                        navigate('/success')
+                    }
+                }
+                catch (e) {
+                    alert(e);
+                    navigate('/failed')
+
+                }
+
 
 
             }} className="flex justify-center px-5 py-2.5 text-sm font-medium text-center text-white bg-green-400  w-full rounded-lg hover:bg-green-300 focus:ring-4 focus:outline-none focus:ring-green-400 dark:bg-green-400 dark:hover:bg-green-500 dark:focus:ring-green-400 my-5 ">
