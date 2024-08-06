@@ -33,7 +33,7 @@ function Signup() {
                         <InputBox placeholder="johndoe@gmail.com" label={"Email"} onChange={(e) => {
                             setUserName(e.target.value)
                         }} />
-                        <InputBox placeholder="qwerty123" label={"Password"} onChange={(e) => {
+                        <InputBox placeholder="qwerty123" type={"password"} label={"Password"} onChange={(e) => {
                             setPassword(e.target.value)
                         }} />
                         <Button label={"Signup"} onClick={async () => {

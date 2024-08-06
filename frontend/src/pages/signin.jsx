@@ -24,7 +24,7 @@ function Signin() {
                         <Heading label={"Signin"} />
                         <SubHeading label={"Enter your credentials to access an account"} />
                         <InputBox placeholder="johndoe@gmail.com" label={"Email"} onChange={(e) => setUsername(e.target.value)} />
-                        <InputBox placeholder="qwerty123" label={"Password"} onChange={(e) => setPassword(e.target.value)} />
+                        <InputBox placeholder="qwerty123" type={"password"} label={"Password"} onChange={(e) => setPassword(e.target.value)} />
                         <Button label={"Signin"} onClick={async () => {
                             try {
                                 await axios.post("http://localhost:3500/api/v1/user/signin", {
