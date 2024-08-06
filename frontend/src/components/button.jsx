@@ -1,9 +1,14 @@
-export default function Button({ label, onClick }) {
+import React from "react"
+
+const Button = React.memo(function ({ label, onClick }) {
     return (
         <div className="pt-4">
             <button onClick={onClick} type="button" className=" w-full text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ">
                 {label}
+
             </button>
         </div>
     )
-}
+})
+
+export default Button

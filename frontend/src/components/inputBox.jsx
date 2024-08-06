@@ -1,4 +1,6 @@
-export default function InputBox({ label, placeholder, type, onChange }) {
+import React from "react"
+
+const InputBox = React.memo(function ({ label, placeholder, type, onChange }) {
     return (
         <div>
             <div className="text-left text-sm font-medium py-2">{label}</div>
@@ -7,4 +9,6 @@ export default function InputBox({ label, placeholder, type, onChange }) {
 
         </div>
     )
-}
+})
+
+export default InputBox

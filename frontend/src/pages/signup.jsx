@@ -6,8 +6,9 @@ import BottomWarning from '../components/bottomWarning.jsx'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import React from 'react'
 
-function Signup() {
+const Signup = React.memo(function () {
 
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
@@ -68,6 +69,6 @@ function Signup() {
             </div>
         </>
     )
-}
+})
 
 export default Signup

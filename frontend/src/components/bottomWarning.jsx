@@ -1,5 +1,6 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
-export default function BottomWarning({ label, buttonText, to }) {
+const BottomWarning = React.memo(function ({ label, buttonText, to }) {
     return (
         <div className='text-md py-2 flex justify-center'>
             <div>{label}</div>
@@ -11,4 +12,5 @@ export default function BottomWarning({ label, buttonText, to }) {
 
     )
 
-}
+})
+export default BottomWarning

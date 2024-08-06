@@ -20,9 +20,7 @@ function auth(req, res, next) {
                 msg: "not decoded"
             })
         }
-
         req.userId = decoded.userID;
-
         next();
     }
     catch (err) {

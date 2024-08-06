@@ -1,5 +1,6 @@
+import React from "react";
 import { useSearchParams } from "react-router-dom";
-export default function Appbar() {
+const Appbar = React.memo(function () {
     const [searchParams] = useSearchParams();
     const fName = searchParams.get('fName')
     return (
@@ -21,4 +22,6 @@ export default function Appbar() {
             </div>
         </div>
     )
-}
+})
+
+export default Appbar

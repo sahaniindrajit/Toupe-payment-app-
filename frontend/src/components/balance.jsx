@@ -10,13 +10,10 @@ export default function Balance() {
             })
                 .then((response) => {
                     setBalance(response.data.Balance)
-
                 })
-
         }
         catch (e) {
             console.log(e);
-
         }
     }, [balance]);
     return (
