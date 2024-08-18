@@ -15,7 +15,10 @@ export default function TransferButton({ id, amount }) {
                 to: id,
                 amount
             }, {
-                withCredentials: true
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                withCredentials: true,
             });
 
             if (response.status >= 400) {

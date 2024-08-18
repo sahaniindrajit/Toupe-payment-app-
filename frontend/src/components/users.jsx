@@ -9,6 +9,9 @@ export default function Users() {
 
     useEffect(() => {
         axios.get("/v1/user/bulk?filter=" + filter, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
             withCredentials: true,
         })
             .then((response) => {

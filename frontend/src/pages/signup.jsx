@@ -45,7 +45,11 @@ const Signup = React.memo(function () {
                                     lastName,
                                     password
                                 }, {
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                    },
                                     withCredentials: true,
+
                                 });
 
                                 if (status >= 400) {
