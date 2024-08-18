@@ -11,7 +11,7 @@ const app = express()
 
 
 app.use(cors({
-    origin: 'https://toupe-payment-app.netlify.app/',
+    origin: 'https://toupe-payment-app.onrender.com',
     credentials: true
 
 }));
