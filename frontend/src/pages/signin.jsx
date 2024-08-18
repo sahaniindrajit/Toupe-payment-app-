@@ -13,7 +13,7 @@ function Signin() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL
+    const API_BASE_URL = import.meta.env.REACT_APP_API_BASE_URL
     return (
         <>
             <div className='bg-slate-300 w-full h-screen flex justify-center'>
