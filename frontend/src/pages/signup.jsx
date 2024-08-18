@@ -15,6 +15,7 @@ const Signup = React.memo(function () {
     const [password, setPassword] = useState("")
     const [username, setUserName] = useState("")
     const navigate = useNavigate();
+    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL
     return (
         <>
             <div className='bg-slate-300 w-full h-screen flex justify-center'>
@@ -39,7 +40,7 @@ const Signup = React.memo(function () {
                         }} />
                         <Button label={"Signup"} onClick={async () => {
                             try {
-                                await axios.post("/v1/user/signup", {
+                                await axios.post(`${API_BASE_URL}/v1/user/signup`, {
                                     username,
                                     firstName,
                                     lastName,

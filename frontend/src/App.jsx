@@ -5,6 +5,9 @@ import DashboardBody from './pages/dashboard.jsx'
 import SendBody from './pages/sendMoney.jsx'
 import Home from './pages/home.jsx'
 import Failed from './pages/failed.jsx'
+import dotenv from 'dotenv'
+
+dotenv.config()
 function App() {
 
   return (

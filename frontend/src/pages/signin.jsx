@@ -13,6 +13,7 @@ function Signin() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL
     return (
         <>
             <div className='bg-slate-300 w-full h-screen flex justify-center'>
@@ -27,7 +28,7 @@ function Signin() {
                         <InputBox placeholder="qwerty123" type={"password"} label={"Password"} onChange={(e) => setPassword(e.target.value)} />
                         <Button label={"Signin"} onClick={async () => {
                             try {
-                                await axios.post("/v1/user/signin", {
+                                await axios.post(`${API_BASE_URL}/v1/user/signin`, {
                                     username,
                                     password
                                 }, {

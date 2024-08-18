@@ -7,11 +7,12 @@ import Failed from "./failed";
 export default function TransferButton({ id, amount }) {
     const [message, setMessage] = useState("");
     const [isSuccess, setIsSuccess] = useState(null);
+    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL
 
     async function handleClick() {
 
         try {
-            const response = await axios.post("/v1/account/transfer", {
+            const response = await axios.post(`${API_BASE_URL}/v1/account/transfer`, {
                 to: id,
                 amount
             }, {

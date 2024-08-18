@@ -6,9 +6,10 @@ import { useNavigate } from "react-router-dom";
 export default function Users() {
     const [users, setUsers] = useState([]);
     const [filter, setFilter] = useState("");
+    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL
 
     useEffect(() => {
-        axios.get("/v1/user/bulk?filter=" + filter, {
+        axios.get(`${API_BASE_URL}/v1/user/bulk?filter=` + filter, {
             headers: {
                 'Content-Type': 'application/json',
             },

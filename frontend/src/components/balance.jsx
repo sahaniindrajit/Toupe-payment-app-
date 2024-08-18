@@ -3,9 +3,14 @@ import { useEffect, useState } from "react"
 
 export default function Balance() {
     const [balance, setBalance] = useState(0)
+
     useEffect(() => {
         try {
-            axios.get('/v1/account/balance', {
+            const API_BASE_URL = process.env.REACT_APP_API_BASE_URL
+            axios.get(`${API_BASE_URL}/v1/account/balance`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
                 withCredentials: true,
             })
                 .then((response) => {
