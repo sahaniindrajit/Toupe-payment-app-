@@ -59,7 +59,8 @@ router.post('/signup', async (req, res) => {
         res.cookie("access_token", token, {
             expires: new Date(Date.now() + 250000000),
             httpOnly: true,
-            secure: true
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'None'
         }).status(200).json({
             msg: "Signup success"
         })
@@ -108,8 +109,10 @@ router.post('/signin', async (req, res) => {
         const token = jwt.sign(payLoad, process.env.JWT_PASSWORD);
 
         return res.cookie("access_token", token, {
-
-            httpOnly: true
+            expires: new Date(Date.now() + 250000000),
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'None'
         }).status(200).json({
             msg: "Signin success"
         })
