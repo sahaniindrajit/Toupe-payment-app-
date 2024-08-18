@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   server: {
     proxy: {
-      '/v1': 'http://toupe-payment-app-backend.onrender.com/api'
+      '/v1': 'https://toupe-payment-app-backend.onrender.com/api'
     }
   },
   plugins: [react()],
