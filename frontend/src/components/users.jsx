@@ -8,7 +8,7 @@ export default function Users() {
     const [filter, setFilter] = useState("");
 
     useEffect(() => {
-        axios.get("http://localhost:3500/api/v1/user/bulk?filter=" + filter, {
+        axios.get("/v1/user/bulk?filter=" + filter, {
             withCredentials: true,
         })
             .then((response) => {

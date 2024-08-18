@@ -1,3 +1,6 @@
+import { data } from "autoprefixer";
+import PropTypes from 'prop-types';
+
 export default function Success({ data }) {
     return (
         <div className="flex items-center justify-center w-full h-32 bg-green-500">
@@ -10,4 +13,8 @@ export default function Success({ data }) {
         </div>
     );
 }
+Success.propTypes = {
+    data: PropTypes.string.isRequired,
+
+};
 

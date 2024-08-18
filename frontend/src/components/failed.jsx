@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 export default function Failed({ data }) {
     return (
         <div className="flex items-center justify-center w-full h-32 bg-red-500">
@@ -10,5 +11,10 @@ export default function Failed({ data }) {
         </div>
     );
 }
+
+Failed.propTypes = {
+    data: PropTypes.string.isRequired,
+
+};
 
 

@@ -39,7 +39,7 @@ const Signup = React.memo(function () {
                         }} />
                         <Button label={"Signup"} onClick={async () => {
                             try {
-                                await axios.post("http://localhost:3500/api/v1/user/signup", {
+                                await axios.post("/v1/user/signup", {
                                     username,
                                     firstName,
                                     lastName,
@@ -71,4 +71,5 @@ const Signup = React.memo(function () {
     )
 })
 
+Signup.displayName = "Signup"
 export default Signup

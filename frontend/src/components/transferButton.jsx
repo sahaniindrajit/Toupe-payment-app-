@@ -1,7 +1,8 @@
 import { useState } from "react";
-import axios, { HttpStatusCode } from "axios";
+import axios from "axios";
 import Success from "./success";
 import Failed from "./failed";
+
 
 export default function TransferButton({ id, amount }) {
     const [message, setMessage] = useState("");
@@ -10,7 +11,7 @@ export default function TransferButton({ id, amount }) {
     async function handleClick() {
 
         try {
-            const response = await axios.post("http://localhost:3500/api/v1/account/transfer", {
+            const response = await axios.post("/v1/account/transfer", {
                 to: id,
                 amount
             }, {

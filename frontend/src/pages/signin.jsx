@@ -27,7 +27,7 @@ function Signin() {
                         <InputBox placeholder="qwerty123" type={"password"} label={"Password"} onChange={(e) => setPassword(e.target.value)} />
                         <Button label={"Signin"} onClick={async () => {
                             try {
-                                await axios.post("http://localhost:3500/api/v1/user/signin", {
+                                await axios.post("/v1/user/signin", {
                                     username,
                                     password
                                 }, {

@@ -5,7 +5,7 @@ export default function Balance() {
     const [balance, setBalance] = useState(0)
     useEffect(() => {
         try {
-            axios.get('http://localhost:3500/api/v1/account/balance', {
+            axios.get('/v1/account/balance', {
                 withCredentials: true,
             })
                 .then((response) => {

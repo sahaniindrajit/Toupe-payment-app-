@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from 'prop-types';
 
 const InputBox = React.memo(function ({ label, placeholder, type, onChange }) {
     return (
@@ -11,4 +12,12 @@ const InputBox = React.memo(function ({ label, placeholder, type, onChange }) {
     )
 })
 
+InputBox.displayName = "InputBox"
+
+InputBox.propTypes = {
+    label: PropTypes.string.isRequired,
+    placeholder: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+};
 export default InputBox

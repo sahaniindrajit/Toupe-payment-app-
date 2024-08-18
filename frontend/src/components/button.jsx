@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from 'prop-types';
 
 const Button = React.memo(function ({ label, onClick }) {
     return (
@@ -9,5 +10,12 @@ const Button = React.memo(function ({ label, onClick }) {
         </div>
     )
 })
+
+Button.displayName = "Button";
+
+Button.propTypes = {
+    label: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
+};
 
 export default Button

@@ -1,4 +1,4 @@
-import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import Heading from "./heading";
 import InputBox from "./inputBox";
 import { useState } from "react";

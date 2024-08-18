@@ -23,5 +23,6 @@ const Appbar = React.memo(function () {
         </div>
     )
 })
+Appbar.displayName = "Appbar";
 
 export default Appbar
