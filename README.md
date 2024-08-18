@@ -2,7 +2,7 @@
 ## Building a basic version of a payment website
 # Toupe Payment App
 
-This project is a payment website built using the MERN stack (MongoDB, Express, React, Node.js). The website allows users to sign up, sign in, check their bank balance, and send money to other users. Upon signing up, users are assigned a random amount of money.
+This project is a payment website built using the MERN stack (MongoDB, Express, React, Node.js). The website allows users to sign up, sign in, check their bank balance, and send money to other users. Upon signing up, users are assigned a random amount of money. [Check out Website](https://toupe-payment-app-frontend.onrender.com)
 
 ## Features
 

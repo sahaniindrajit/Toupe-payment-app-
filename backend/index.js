@@ -12,7 +12,7 @@ const app = express()
 
 app.use(cors({
     credentials: true,
-    origin: "http://localhost:5173"
+    origin: "https://toupe-payment-app-frontend.onrender.com"
 }));
 app.use(express.json())
 app.use(morgan('tiny'))
