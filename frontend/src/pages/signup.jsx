@@ -15,7 +15,7 @@ const Signup = React.memo(function () {
     const [password, setPassword] = useState("")
     const [username, setUserName] = useState("")
     const navigate = useNavigate();
-    const API_BASE_URL = import.meta.env.REACT_APP_API_BASE_URL
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ''
     return (
         <>
             <div className='bg-slate-300 w-full h-screen flex justify-center'>

@@ -7,7 +7,7 @@ import Failed from "./failed";
 export default function TransferButton({ id, amount }) {
     const [message, setMessage] = useState("");
     const [isSuccess, setIsSuccess] = useState(null);
-    const API_BASE_URL = import.meta.env.REACT_APP_API_BASE_URL
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ''
 
     async function handleClick() {
 

@@ -9,7 +9,7 @@ export default function Users() {
 
 
     useEffect(() => {
-        const API_BASE_URL = import.meta.env.REACT_APP_API_BASE_URL
+        const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ''
         axios.get(`${API_BASE_URL}/v1/user/bulk?filter=` + filter, {
             headers: {
                 'Content-Type': 'application/json',
