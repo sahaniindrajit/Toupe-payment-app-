@@ -6,7 +6,7 @@ export default function Balance() {
 
     useEffect(() => {
         try {
-            const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ''
+            const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
             axios.get(`${API_BASE_URL}/v1/account/balance`, {
                 headers: {
                     'Content-Type': 'application/json',
